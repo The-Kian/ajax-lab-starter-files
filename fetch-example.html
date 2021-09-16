@@ -51,19 +51,25 @@
   </body>
   <script>
   (function() {
+
     // IIFE
-     //let api = "data/myData.json";
-    let api = "https://got-quotes.herokuapp.com/quotes";
+    let api = "data/myData.json";
     fetch(api)
-      .then(function (response) {
-        return response.json()
+      .then(response => response.json())
+      .then(myJson => {
+        console.dir(myJson);
+        document.getElementById("myData").innerHTML = myJson.map(obj => {
+          let myStr = `<tr>
+ <td>${obj.name}</td>
+ <td>${obj.email}</td>
+ <td>${obj.age}</td>
+ </tr>`
+          return myStr
+        }).join("")
+        // use join with template literals to remove extra comma
       })
-      .then(function (myJson) {
-        console.dir(myJson)
-      })
-      .catch(function () {
-        console.log("damn that Jason")
-      })
+      .catch(() => console.log("damn that Jason"))
+
   }) ()
 
   </script>
