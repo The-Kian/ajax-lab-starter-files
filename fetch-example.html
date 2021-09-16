@@ -49,4 +49,22 @@
       </table>
     </div>
   </body>
+  <script>
+  (function() {
+    // IIFE
+    let api = "data/myData.json";
+    // let api = "//www.ywonline.co.uk/web/newincid.nsf/incidentsjson";
+    fetch(api)
+      .then(function (response) {
+        response.json()
+      })
+      .then(function (myJson) {
+        console.dir(myJson)
+      })
+      .catch(function () {
+        console.log("damn that Jason")
+      })
+  }) ()
+
+  </script>
 </html>
