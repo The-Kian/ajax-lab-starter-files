@@ -43,9 +43,9 @@
           myXHR.send();
           function showData() {
             if (myXHR.readyState == 4) {
-              //console.dir(myXHR.responseXML);
+              console.dir(myXHR.responseXML);
               var buses = myXHR.responseXML.getElementsByTagName("bus");
-              //console.dir(buses)
+              console.dir(buses)
             }
           }
         }) ();
